@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OwlCalc — Smart Multi-Utility Calculator for iOS & Web</title>
+  <meta name="description" content="High-precision multi-utility calculator with glassmorphic UI, arbitrary precision math engine, interactive tape canvas, and 18+ specialized calculators.">
+  <meta name="keywords" content="OwlCalc, smart calculator, scientific calculator, unit converter, tip splitter, currency exchange, arbitrary precision calculator">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="OwlCalc — Smart Multi-Utility Calculator">
+  <meta property="og:description" content="Fast, glassmorphic, arbitrary precision arithmetic with interactive tape canvas and 18+ specialized tools.">
+  <meta property="og:image" content="assets/icon.png">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon & Stylesheet -->
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="stylesheet" href="web/styles.css">
+</head>
+<body>
+  <!-- Ambient Glass Background Orbs -->
+  <div class="bg-ambient" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
+
+  <div class="app-wrapper">
+    <!-- Navbar Header -->
+    <header class="navbar">
+      <a href="#" class="brand" id="nav-brand-logo">
+        <img src="assets/icon.png" alt="OwlCalc Logo" class="brand-icon">
+        <div>
+          <span class="brand-name">OwlCalc</span>
+          <span class="brand-tag">VISION OS</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#demo" class="nav-link">Live App Demo</a></li>
+        <li><a href="#receipts" class="nav-link">Receipt Export</a></li>
+        <li><a href="#pricing" class="nav-link">Pricing</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <button id="theme-toggle-btn" class="btn-secondary" style="font-size: 12px; padding: 8px 14px;">Theme: DARK</button>
+        <a href="#demo" class="btn-primary" id="try-demo-btn">Try Interactive App</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section" id="hero">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span>✨ NEXT-GEN CALCULATOR ENGINE</span>
+          </div>
+          <h1 class="hero-title">
+            Smart calculations, <span class="gradient-text">reimagined for power users</span>.
+          </h1>
+          <p class="hero-desc">
+            OwlCalc combines a clean high-contrast key grid with fluid ergonomics, arbitrary-precision floating point math, reactive dependency tape history, and cross-calculator tap interop.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#demo" class="btn-primary" id="hero-get-started-btn">Launch Live Web Demo</a>
+            <a href="#features" class="btn-secondary" id="hero-learn-more-btn">Explore 18+ Tools</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h4>18+</h4>
+              <p>Specialized Calculators</p>
+            </div>
+            <div class="stat-item">
+              <h4>135+</h4>
+              <p>Live Currency Rates</p>
+            </div>
+            <div class="stat-item">
+              <h4>100%</h4>
+              <p>Zero Floating Error</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Interactive App Mockup -->
+        <div class="hero-demo" id="demo">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <!-- Phone Status Header -->
+              <div class="phone-header">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <img src="assets/icon.png" style="width: 18px; height: 18px; border-radius: 4px;" alt="Icon">
+                  <span style="font-size: 12px; font-weight: 800; color: #F8FAFC;">OwlCalc</span>
+                </div>
+                <span style="font-size: 10px; font-weight: 700; color: var(--accent-emerald);">● LIVE DEMO</span>
+              </div>
+
+              <!-- Calculator Category Tabs -->
+              <div class="calc-selector-bar" id="calc-selector-bar">
+                <button class="mode-tab active" data-mode="basic">🧮 Basic</button>
+                <button class="mode-tab" data-mode="scientific">🔬 Scientific</button>
+                <button class="mode-tab" data-mode="currency">💱 Currency</button>
+                <button class="mode-tab" data-mode="unit_converter">📏 Unit Convert</button>
+                <button class="mode-tab" data-mode="tip">💡 Tip & Split</button>
+                <button class="mode-tab" data-mode="discount">🏷️ Discount</button>
+                <button class="mode-tab" data-mode="date">📅 Date</button>
+                <button class="mode-tab" data-mode="bmi">⚖️ BMI</button>
+                <button class="mode-tab" data-mode="loan">🏦 Loan</button>
+              </div>
+
+              <!-- Main Calculator View -->
+              <div id="calc-main-view" style="display: flex; flex-direction: column; flex: 1; overflow: hidden;">
+                <!-- Display Window -->
+                <div class="calc-display-area">
+                  <div class="calc-expr" id="calc-expr"></div>
+                  <div class="calc-result" id="calc-result">0</div>
+                </div>
+
+                <!-- Tape Canvas -->
+                <div class="tape-canvas" id="tape-canvas"></div>
+
+                <!-- Keypad -->
+                <div id="keypad-container" class="calc-keypad"></div>
+              </div>
+
+              <!-- Specialized Calculator Container -->
+              <div id="specialized-view" class="specialized-view" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Pillars Section -->
+      <section class="section-container" id="features">
+        <div class="section-header">
+          <span class="section-tag">ENGINEERED FOR PRECISION</span>
+          <h2 class="section-title">Built for Power Users Who Demand Modern Ergonomics</h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Tap-to-Insert Interop</h3>
+            <p>Seamless cross-calculator payload passing. Calculate a bill split or currency rate, then tap to insert that exact raw value straight into any other utility without copy-pasting.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📜</div>
+            <h3>Interactive Canvas Tape</h3>
+            <p>Scrollable reactive dependency graph. Edit past expression entries inline and watch downstream totals auto-recalculate instantly across your entire calculation workflow.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🧾</div>
+            <h3>Shareable Receipt Cards</h3>
+            <p>Export elegant itemized PNG/PDF receipt cards for restaurant tips, bill splits, and travel expense reports directly with native share sheet integration.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">💎</div>
+            <h3>Glassmorphic Themes</h3>
+            <p>VisionOS translucent glass cards with backdrop filters, customizable dark mode palette, and Apple-parity high-contrast keypad key matrix.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🔢</div>
+            <h3>Arbitrary Precision Math</h3>
+            <p>Powered by BigNumber.js engine to eliminate standard JavaScript IEEE-754 floating point rounding bugs (e.g. 0.1 + 0.2 = 0.30000000000000004).</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Zero-Scroll Ergonomics</h3>
+            <p>Dynamic keypad scaling ensures 100% visibility on both portrait mobile devices and desktop windows without annoying page scrolling.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Shareable Receipt Generator Section -->
+      <section class="section-container" id="receipts">
+        <div class="section-header">
+          <span class="section-tag">INSTANT EXPENSE SHARING</span>
+          <h2 class="section-title">Share Clean Itemized Receipts with Friends & Colleagues</h2>
+        </div>
+
+        <div class="receipt-demo-section">
+          <div>
+            <span class="section-tag">LIVE RECEIPT BUILDER</span>
+            <h3 style="font-size: 28px; font-weight: 800; margin: 12px 0;">Generate Receipt Cards in Seconds</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 24px;">
+              Split dinner, group Airbnb trips, or team projects. OwlCalc formats clean, downloadable expense summaries with date, items, tip, and total breakdown.
+            </p>
+            <div style="display: flex; gap: 12px;">
+              <button class="btn-primary" onclick="alert('Receipt copied to clipboard!')">Copy Receipt Summary</button>
+              <button class="btn-secondary" onclick="alert('CSV Exporting...')">Export CSV Tape</button>
+            </div>
+          </div>
+
+          <div class="receipt-card-preview">
+            <div class="receipt-header">
+              <h4 style="font-size: 16px; font-weight: 800;">OWL-CALC RECEIPT</h4>
+              <span style="font-size: 11px; color: #64748B;">Date: Aug 16, 2026</span>
+            </div>
+            <div class="receipt-row">
+              <span>Dinner & Drinks</span>
+              <span>$140.00</span>
+            </div>
+            <div class="receipt-row">
+              <span>Service Tip (18%)</span>
+              <span>$25.20</span>
+            </div>
+            <div class="receipt-row">
+              <span>Sales Tax (8%)</span>
+              <span>$11.20</span>
+            </div>
+            <div class="receipt-row receipt-total">
+              <span>GRAND TOTAL (4 People)</span>
+              <span>$176.40</span>
+            </div>
+            <div class="receipt-row" style="color: #6366F1; font-weight: 700;">
+              <span>Per Person Share</span>
+              <span>$44.10</span>
+            </div>
+            <div style="text-align: center; font-size: 12px; margin-top: 12px; color: #94A3B8;">
+              ||| | |||| | ||||| || |
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Matrix Section -->
+      <section class="section-container" id="pricing">
+        <div class="section-header">
+          <span class="section-tag">SIMPLE TRANSPARENT TIERS</span>
+          <h2 class="section-title">Zero Ads. Full Local Power. Upgrade Only for Pro Stack.</h2>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Free Tier -->
+          <div class="pricing-card">
+            <h3>Standard Free Tier</h3>
+            <p style="color: var(--text-secondary); font-size: 14px;">All 18+ basic & utility tools for daily calculations.</p>
+            <div class="pricing-price">$0 <span>/ forever</span></div>
+            <ul class="pricing-features">
+              <li>✔️ All 18+ Basic & Utility Calculators</li>
+              <li>✔️ Live Currency Rates (135+ Currencies)</li>
+              <li>✔️ Tap-to-Insert Interop System</li>
+              <li>✔️ Unlimited Local Tape Canvas</li>
+              <li>✔️ Standard Receipt Export</li>
+              <li>✔️ Zero Ads Forever</li>
+            </ul>
+            <a href="#demo" class="btn-secondary" style="text-align: center; justify-content: center;">Use Free Version</a>
+          </div>
+
+          <!-- Pro Tier -->
+          <div class="pricing-card featured">
+            <div class="pricing-badge">MOST POPULAR</div>
+            <h3>Pro Power Tier</h3>
+            <p style="color: var(--text-secondary); font-size: 14px;">For engineers, programmers, and finance power users.</p>
+            <div class="pricing-price">$14.99 <span>/ year</span></div>
+            <ul class="pricing-features">
+              <li>✔️ Everything in Free Tier</li>
+              <li>✔️ RPN Calculator Mode (Stack operations)</li>
+              <li>✔️ Programmer Mode (Hex, Binary, Octal, Bitwise)</li>
+              <li>✔️ Unit-aware expression math ("3ft + 2m")</li>
+              <li>✔️ Custom Receipt Branding & PDF Export</li>
+              <li>✔️ Cross-device Cloud History Sync</li>
+            </ul>
+            <a href="#demo" class="btn-primary" style="text-align: center; justify-content: center;">Upgrade to Pro</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="section-container" id="faq">
+        <div class="section-header">
+          <span class="section-tag">FREQUENTLY ASKED QUESTIONS</span>
+          <h2 class="section-title">Everything You Need to Know</h2>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+          <details style="background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius-md); padding: 20px; cursor: pointer;">
+            <summary style="font-weight: 700; font-size: 16px;">What makes OwlCalc different from standard mobile calculators?</summary>
+            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 14px;">
+              OwlCalc combines a high-contrast grid layout with an arbitrary-precision math engine, reactive dependency canvas tape (where past calculation edits auto-update downstream values), and tap-to-insert interop between tools.
+            </p>
+          </details>
+
+          <details style="background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius-md); padding: 20px; cursor: pointer;">
+            <summary style="font-weight: 700; font-size: 16px;">How does Tap-to-Insert Interop work?</summary>
+            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 14px;">
+              When you perform a calculation in one calculator (e.g. Basic Math or Currency), switching to another calculator (e.g. Tip, Discount, or BMI) automatically displays a button at the top allowing you to insert the previous result with a single tap.
+            </p>
+          </details>
+
+          <details style="background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius-md); padding: 20px; cursor: pointer;">
+            <summary style="font-weight: 700; font-size: 16px;">Is my calculation history stored locally?</summary>
+            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 14px;">
+              Yes! 100% of your calculation tape is stored locally on your device (using browser localStorage on web and SQLite on mobile). Your financial and personal data never leaves your device.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="brand">
+          <img src="assets/icon.png" alt="OwlCalc Logo" class="brand-icon">
+          <span class="brand-name">OwlCalc</span>
+        </div>
+        <div style="color: var(--text-muted); font-size: 14px;">
+          The next-generation multi-utility calculator for power users.
+        </div>
+      </div>
+      <div class="footer-copy">
+        © 2026 OwlCalc / Cal-C. All rights reserved. Built with React Native & Web Technology.
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="web/mathEngine.js"></script>
+  <script src="web/tapeStore.js"></script>
+  <script src="web/calculators.js"></script>
+  <script src="web/app.js"></script>
+</body>
+</html>
