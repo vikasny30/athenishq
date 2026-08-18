@@ -178,7 +178,7 @@
   @media (max-width: 640px) { .status-hero { margin-top: 48px; } }
 
   /* ── Reveal-on-scroll ── */
-  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.35s ease; }
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.35s ease; overflow-anchor: none; }
   .reveal.in-view { opacity: 1; transform: translateY(0); }
 
   /* ── Products ── */
@@ -225,20 +225,20 @@
   .svc-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
   .svc-name { display: flex; flex-direction: column; gap: 3px; padding-top: 1px; }
   .svc-name-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-  .svc-name b { font-size: 19px; font-weight: 800; letter-spacing: -0.3px; }
-  .svc-name .vertical { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.04em; }
+  .svc-name b { font-size: 22px; font-weight: 800; letter-spacing: -0.3px; }
+  .svc-name .vertical { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.04em; }
   .svc-status {
-    font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase;
+    font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase;
     letter-spacing: 0.04em; white-space: nowrap; padding: 4px 10px; border-radius: 20px; flex-shrink: 0;
   }
   .svc-status.ok { color: var(--ok); background: var(--ok-dim); }
   .svc-status.dev { color: var(--dev); background: var(--dev-dim); }
   .svc-status.idle { color: var(--idle); background: var(--idle-dim); }
-  .svc-desc { font-size: 13.5px; color: var(--text-dim); line-height: 1.55; margin-bottom: 16px; }
+  .svc-desc { font-size: 15px; color: var(--text-dim); line-height: 1.6; margin-bottom: 16px; }
   .svc-bottom { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; gap: 16px; flex-wrap: wrap; }
   .svc-metrics { display: flex; gap: 24px; padding-top: 14px; border-top: 1px solid var(--line); font-family: var(--font-mono); flex: 1; }
-  .svc-metrics b { display: block; font-size: 16px; color: var(--text); font-weight: 700; }
-  .svc-metrics span { font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.03em; }
+  .svc-metrics b { display: block; font-size: 18px; color: var(--text); font-weight: 700; }
+  .svc-metrics span { font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.03em; }
   .svc-arrow {
     font-family: var(--font-mono); font-size: 18px; padding-top: 16px; padding-left: 16px;
     opacity: 0; transform: translate(-6px, 0); transition: opacity 0.25s ease, transform 0.25s ease; flex-shrink: 0;
@@ -356,8 +356,8 @@
     <span class="overall-text"><b>2 systems live today.</b> 3 more building in public.</span>
   </div>
 
-  <h1>Purpose-built software for evaluation, analysis, and everyday utility.</h1>
-  <p class="hero-desc">AthenisHQ builds intelligent tools around specific, high-value problems — from behavioral AI safety to real-world visual inspection. Each one is built on a real, checkable primitive, not a wrapper around a model.</p>
+  <h1>Software engineered for accuracy: from AI behavior to daily workflows.</h1>
+  <p class="hero-desc">AthenisHQ builds intelligent tools designed for high-value tasks, from AI behavioral evaluation and financial analysis to real-world visual inspection.</p>
 
   <div class="cta-row">
     <a href="#products" class="btn-primary">See the live products ↓</a>
