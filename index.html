@@ -317,14 +317,16 @@
     max-width: 480px; margin: 28px auto 0; text-align: left;
   }
   .contact-row { display: flex; gap: 10px; flex-wrap: wrap; }
-  .contact-form input, .contact-form textarea {
+  .contact-form input, .contact-form textarea, .contact-form select {
     flex: 1; min-width: 160px; padding: 11px 13px; border-radius: 8px;
     background: var(--surface-2); border: 1px solid var(--line);
     color: var(--text); font-family: var(--font-sans); font-size: 14px;
   }
+  .contact-form select { width: 100%; appearance: none; cursor: pointer; }
+  .contact-form select:invalid, .contact-form select option[value=""] { color: var(--text-faint); }
   .contact-form textarea { width: 100%; resize: vertical; min-height: 90px; }
   .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--text-faint); }
-  .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent); }
+  .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { outline: none; border-color: var(--accent); }
   .contact-form button {
     align-self: flex-start; padding: 11px 22px; border-radius: 8px; border: none;
     background: var(--accent); color: #fff;
@@ -652,6 +654,18 @@
       <input type="text" name="name" required placeholder="Your name" aria-label="Name">
       <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address">
     </div>
+    <div class="contact-row">
+      <input type="text" name="company" placeholder="Company (optional)" aria-label="Company">
+      <input type="text" name="role" placeholder="Role (optional)" aria-label="Role">
+    </div>
+    <select name="heard_about" aria-label="How did you hear about us?">
+      <option value="">How did you hear about us? (optional)</option>
+      <option value="Search engine">Search engine</option>
+      <option value="Social media">Social media</option>
+      <option value="Referral / word of mouth">Referral / word of mouth</option>
+      <option value="Already use one of our products">Already use one of our products</option>
+      <option value="Other">Other</option>
+    </select>
     <textarea name="message" required placeholder="What's this about?" aria-label="Message" rows="4"></textarea>
     <button type="submit">Send message</button>
   </form>
@@ -804,12 +818,17 @@
 
   // General contact form — same backend the carmeai.com contact page
   // already uses, requires name + email + message, emails you directly.
+  // company/role/heard_about are optional lead-qualification fields, saved
+  // to the same structured contacts.jsonl backup for later CRM import.
   var contactForm = document.querySelector('.contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
       var name = contactForm.querySelector('input[name="name"]');
       var email = contactForm.querySelector('input[name="email"]');
+      var company = contactForm.querySelector('input[name="company"]');
+      var role = contactForm.querySelector('input[name="role"]');
+      var heardAbout = contactForm.querySelector('select[name="heard_about"]');
       var message = contactForm.querySelector('textarea[name="message"]');
       var button = contactForm.querySelector('button');
       var note = contactForm.nextElementSibling && contactForm.nextElementSibling.classList.contains('inline-waitlist-note')
@@ -826,7 +845,11 @@
       fetch('https://carmeai.com/v1/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.value, email: email.value, message: message.value })
+        body: JSON.stringify({
+          name: name.value, email: email.value, message: message.value,
+          company: company.value, role: role.value, heard_about: heardAbout.value,
+          source: 'athenishq.com'
+        })
       })
         .then(function (res) { if (!res.ok) throw new Error('request failed'); })
         .then(function () {
