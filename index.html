@@ -301,8 +301,24 @@
   .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
   @media (max-width: 760px) { .split { grid-template-columns: 1fr; } }
   .split-quote { font-size: clamp(22px, 2.8vw, 30px); font-weight: 800; letter-spacing: -0.6px; line-height: 1.3; }
+  .studio-graphic {
+    margin-top: 32px; min-height: 220px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent-dim), transparent 65%), var(--surface);
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .studio-graphic svg { width: 78%; height: 78%; color: var(--accent); opacity: 0.85; }
+  @media (max-width: 760px) { .studio-graphic { margin-top: 24px; } }
   .split p { font-size: 15.5px; line-height: 1.7; color: var(--text-dim); }
   .split p + p { margin-top: 14px; }
+  .studio-blocks { display: flex; flex-direction: column; gap: 28px; }
+  .studio-block-label {
+    display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+    color: var(--text-faint); text-transform: uppercase; margin-bottom: 10px;
+  }
+  .studio-money { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .studio-money li { font-size: 14.5px; color: var(--text-dim); line-height: 1.5; }
+  .studio-money li b { color: var(--text); font-weight: 700; }
   .roadmap-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
   .roadmap-list li { font-size: 14px; color: var(--text-dim); line-height: 1.5; display: flex; gap: 10px; align-items: flex-start; }
   .roadmap-list li::before { content: "→"; color: var(--accent); font-weight: 700; flex-shrink: 0; }
@@ -613,12 +629,42 @@
 <div class="section reveal" id="studio">
   <div class="section-label">Studio</div>
   <div class="split">
-    <p class="split-quote">Five products deep, two shipped and live, before the first outside hire.</p>
     <div>
-      <p>AthenisHQ is led by a founding team of engineering leaders with over a decade building AI-powered platforms and infrastructure at internet scale — leading teams that ship products used by hundreds of millions of people, and building the deployment and reliability systems that keep them running.</p>
-      <p>That's the bar every product here is held to: production-grade, at scale, no shortcuts. Two are already live proving it end-to-end; the rest are close behind, and the studio is now building the team to take all five further.</p>
-      <p>None of the five compete on being first — they compete on being verifiably right: a public hash-chained ledger instead of a claimed track record, empirical failure rates instead of vibes-based safety claims.</p>
-      <p>Monetization isn't theoretical, either — it's already built into each product: Aletheia is source-available with paid commercial licensing for hosted use, OwlScore stays free with full S&amp;P 500 coverage planned as a premium tier, and OwlNote and CAL-C both ship free-to-start with a Pro subscription unlocking sync and AI.</p>
+      <p class="split-quote">Five products deep, two shipped and live, before the first outside hire.</p>
+      <div class="studio-graphic">
+        <svg viewBox="0 0 220 180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <line x1="110" y1="90" x2="40" y2="35"/>
+          <line x1="110" y1="90" x2="180" y2="35"/>
+          <line x1="110" y1="90" x2="30" y2="110"/>
+          <line x1="110" y1="90" x2="190" y2="110"/>
+          <line x1="110" y1="90" x2="110" y2="150"/>
+          <circle cx="110" cy="90" r="7" fill="currentColor" stroke="none"/>
+          <circle cx="40" cy="35" r="5" fill="currentColor" stroke="none" opacity="0.85"/>
+          <circle cx="180" cy="35" r="5" fill="currentColor" stroke="none" opacity="0.85"/>
+          <circle cx="30" cy="110" r="5" fill="currentColor" stroke="none" opacity="0.85"/>
+          <circle cx="190" cy="110" r="5" fill="currentColor" stroke="none" opacity="0.85"/>
+          <circle cx="110" cy="150" r="5" fill="currentColor" stroke="none" opacity="0.85"/>
+        </svg>
+      </div>
+    </div>
+    <div class="studio-blocks">
+      <div class="studio-block">
+        <b class="studio-block-label">Team</b>
+        <p>AthenisHQ is led by a founding team of engineering leaders with over a decade building AI-powered platforms and infrastructure at internet scale — leading teams that ship products used by hundreds of millions of people, and building the deployment and reliability systems that keep them running.</p>
+      </div>
+      <div class="studio-block">
+        <b class="studio-block-label">Standard</b>
+        <p>Production-grade, at scale, no shortcuts — the bar every product is held to. Two are already live proving it end-to-end; the rest are close behind, and the studio is now building the team to take all five further.</p>
+        <p>None of the five compete on being first — they compete on being verifiably right: a public hash-chained ledger instead of a claimed track record, empirical failure rates instead of vibes-based safety claims.</p>
+      </div>
+      <div class="studio-block">
+        <b class="studio-block-label">Monetization</b>
+        <ul class="studio-money">
+          <li><b>Aletheia</b> — source-available, paid commercial licensing for hosted use</li>
+          <li><b>OwlScore</b> — free, full S&amp;P 500 coverage planned as a premium tier</li>
+          <li><b>OwlNote &amp; CAL-C</b> — free-to-start, Pro subscription unlocks sync and AI</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
