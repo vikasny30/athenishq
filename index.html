@@ -301,14 +301,14 @@
   .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
   @media (max-width: 760px) { .split { grid-template-columns: 1fr; } }
   .split-quote { font-size: clamp(22px, 2.8vw, 30px); font-weight: 800; letter-spacing: -0.6px; line-height: 1.3; }
-  .studio-graphic {
+  .section-graphic {
     margin-top: 32px; min-height: 220px; border-radius: 14px;
     background: linear-gradient(135deg, var(--accent-dim), transparent 65%), var(--surface);
     border: 1px solid var(--line);
     display: flex; align-items: center; justify-content: center;
   }
-  .studio-graphic svg { width: 78%; height: 78%; color: var(--accent); opacity: 0.85; }
-  @media (max-width: 760px) { .studio-graphic { margin-top: 24px; } }
+  .section-graphic svg { width: 78%; height: 78%; color: var(--accent); opacity: 0.85; }
+  @media (max-width: 760px) { .section-graphic { margin-top: 24px; } }
   .split p { font-size: 15.5px; line-height: 1.7; color: var(--text-dim); }
   .split p + p { margin-top: 14px; }
   .studio-blocks { display: flex; flex-direction: column; gap: 28px; }
@@ -631,7 +631,7 @@
   <div class="split">
     <div>
       <p class="split-quote">Five products deep, two shipped and live, before the first outside hire.</p>
-      <div class="studio-graphic">
+      <div class="section-graphic">
         <svg viewBox="0 0 220 180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
           <line x1="110" y1="90" x2="40" y2="35"/>
           <line x1="110" y1="90" x2="180" y2="35"/>
@@ -678,6 +678,17 @@
         <input type="email" required placeholder="you@fund.com" aria-label="Email address">
         <button type="submit">Get the deck →</button>
       </form>
+      <div class="section-graphic">
+        <svg viewBox="0 0 220 180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <rect x="34" y="122" width="20" height="28" rx="3" fill="currentColor" stroke="none" opacity="0.55"/>
+          <rect x="70" y="104" width="20" height="46" rx="3" fill="currentColor" stroke="none" opacity="0.65"/>
+          <rect x="106" y="82" width="20" height="68" rx="3" fill="currentColor" stroke="none" opacity="0.75"/>
+          <rect x="142" y="56" width="20" height="94" rx="3" fill="currentColor" stroke="none" opacity="0.85"/>
+          <rect x="178" y="30" width="20" height="120" rx="3" fill="currentColor" stroke="none"/>
+          <line x1="44" y1="112" x2="188" y2="20" opacity="0.5"/>
+          <circle cx="188" cy="20" r="4" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
     </div>
     <div>
       <p>AthenisHQ is raising to take Aletheia and OwlScore from live-and-working to fully scaled, and to ship OwlNote, CAL-C, and TireScan into their own markets. This isn't a pitch built on a plan — it's a studio that's already proven it can ship, evaluated in public, with real usage data backing two products before asking for a check.</p>
