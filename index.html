@@ -28,7 +28,7 @@
 }
 </script>
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%236366F1%22/><text x=%2216%22 y=%2222%22 font-size=%2218%22 font-family=%22sans-serif%22 font-weight=%22800%22 fill=%22%23fff%22 text-anchor=%22middle%22>A</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><defs><linearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%2232%22 y2=%2232%22><stop offset=%220%22 stop-color=%22%236366F1%22/><stop offset=%221%22 stop-color=%22%2338BDF8%22/></linearGradient></defs><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22url(%23g)%22/><path d=%22M16 6L8 26%22 stroke=%22%23fff%22 stroke-width=%222.6%22 stroke-linecap=%22round%22 fill=%22none%22/><path d=%22M16 6L24 26%22 stroke=%22%23fff%22 stroke-width=%222.6%22 stroke-linecap=%22round%22 fill=%22none%22/><path d=%22M11 18H21%22 stroke=%22%23fff%22 stroke-width=%222.6%22 stroke-linecap=%22round%22 fill=%22none%22/></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,8 +93,9 @@
     width: 28px; height: 28px; border-radius: 8px;
     background: linear-gradient(135deg, #6366F1, #38BDF8);
     display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 13px; color: #fff; flex-shrink: 0;
+    flex-shrink: 0;
   }
+  .brand-mark svg { width: 16px; height: 16px; }
   .brand-name { font-weight: 700; font-size: 15px; letter-spacing: -0.2px; }
   nav { display: flex; align-items: center; gap: 28px; font-size: 13.5px; }
   nav a { text-decoration: none; color: var(--text-dim); }
@@ -323,7 +324,11 @@
 
 <header>
   <a href="#" class="brand">
-    <span class="brand-mark">A</span>
+    <span class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 4L5 20"/><path d="M12 4L19 20"/><path d="M8.3 14H15.7"/>
+      </svg>
+    </span>
     <span class="brand-name">AthenisHQ</span>
   </a>
   <nav>
@@ -351,8 +356,8 @@
     <span class="overall-text"><b>2 systems live today.</b> 3 more building in public.</span>
   </div>
 
-  <h1>Every product here is built around a fact you can check.</h1>
-  <p class="hero-desc">Each product is built around a real primitive — a validated behavioral taxonomy, a hash-chained ledger, a rendering engine, precision math. AI is part of some of them. Not all.</p>
+  <h1>Purpose-built software for evaluation, analysis, and everyday utility.</h1>
+  <p class="hero-desc">AthenisHQ builds intelligent tools around specific, high-value problems — from behavioral AI safety to real-world visual inspection. Each one is built on a real, checkable primitive, not a wrapper around a model.</p>
 
   <div class="cta-row">
     <a href="#products" class="btn-primary">See the live products ↓</a>
@@ -363,7 +368,6 @@
     <div class="stat-item"><b>5</b><span>Products</span></div>
     <div class="stat-item"><b>2</b><span>Live in production</span></div>
     <div class="stat-item"><b>3</b><span>In development</span></div>
-    <div class="stat-item"><b>2,571</b><span>Incidents validated</span></div>
   </div>
 
   <div class="verified-line">
