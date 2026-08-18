@@ -76,7 +76,8 @@
     }
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  /* scroll-behavior intentionally left as browser default (not smooth) —
+     see the hash-anchor script below for why. */
   body {
     background: var(--bg); color: var(--text);
     font-family: var(--font-sans); -webkit-font-smoothing: antialiased;
@@ -291,7 +292,8 @@
   .log-entry p b { color: var(--text); font-weight: 600; }
 
   /* ── Studio / Investors / Contact ── */
-  .section { max-width: 900px; margin: 0 auto; padding: 70px 24px; border-top: 1px solid var(--line); }
+  .section { max-width: 900px; margin: 0 auto; padding: 70px 24px; border-top: 1px solid var(--line); scroll-margin-top: 80px; }
+  #products { scroll-margin-top: 80px; }
   .section-label {
     font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
     color: var(--text-faint); text-transform: uppercase; margin-bottom: 16px;
@@ -671,6 +673,35 @@
   }
   tick();
   setInterval(tick, 1000);
+
+  // ── Hash-anchor scrolling, handled ourselves ──
+  // Neither the browser's native "scroll to #fragment" nor an animated
+  // (behavior: 'smooth') scrollIntoView is reliable here: an animated
+  // scroll that passes over several .reveal sections triggers their
+  // IntersectionObserver callbacks mid-flight, and Chromium cancels the
+  // scroll rather than finishing it, landing back at the top. An instant
+  // jump has none of that window to get interrupted in, so every in-page
+  // anchor is resolved that way instead.
+  function scrollToHash(hash) {
+    if (!hash) return;
+    var target = document.querySelector(hash);
+    if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var hash = a.getAttribute('href');
+    if (hash.length < 2 || !document.querySelector(hash)) return;
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      history.pushState(null, '', hash);
+      scrollToHash(hash);
+    });
+  });
+  window.addEventListener('hashchange', function () { scrollToHash(location.hash); });
+  if (location.hash) {
+    var initialHash = location.hash;
+    var settle = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    settle.then(function () { setTimeout(function () { scrollToHash(initialHash); }, 50); });
+  }
 
   // ── Reveal-on-scroll ──
   var revealEls = document.querySelectorAll('.reveal');
