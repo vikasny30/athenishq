@@ -97,7 +97,14 @@
     flex-shrink: 0;
   }
   .brand-mark svg { width: 16px; height: 16px; }
-  .brand-name { font-weight: 700; font-size: 15px; letter-spacing: -0.2px; }
+  .brand-text { display: flex; flex-direction: column; gap: 1px; }
+  .brand-name { font-weight: 700; font-size: 15px; letter-spacing: -0.2px; line-height: 1.1; }
+  .brand-tagline {
+    font-family: var(--font-mono); font-size: 9.5px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint);
+    line-height: 1.1;
+  }
+  @media (max-width: 520px) { .brand-tagline { display: none; } }
   nav { display: flex; align-items: center; gap: 28px; font-size: 13.5px; }
   nav a { text-decoration: none; color: var(--text-dim); }
   nav a:hover { color: var(--text); }
@@ -371,7 +378,10 @@
         <path d="M12 4L5 20"/><path d="M12 4L19 20"/><path d="M8.3 14H15.7"/>
       </svg>
     </span>
-    <span class="brand-name">AthenisHQ</span>
+    <span class="brand-text">
+      <span class="brand-name">AthenisHQ</span>
+      <span class="brand-tagline">An AI-native studio solving accuracy</span>
+    </span>
   </a>
   <nav>
     <a href="#products">Products</a>
