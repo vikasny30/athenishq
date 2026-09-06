@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AthenisHQ — AI-native products, verified in public</title>
-<meta name="description" content="AthenisHQ is an AI-native product studio building Aletheia (LLM behavioral observability), OwlScore (verifiable AI stock scoring), OwlNote, CAL-C, and TireScan — each held to the same bar: real primitives, checkable claims.">
+<meta name="description" content="AthenisHQ is an AI-native product studio building Aletheia (LLM behavioral observability), Aletheia MCP (runtime agent tool-call filter), OwlScore (verifiable AI stock scoring), OwlNote, CAL-C, and TireScan — each held to the same bar: real primitives, checkable claims.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://athenishq.com/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://athenishq.com/">
 <meta property="og:title" content="AthenisHQ — AI-native products, verified in public">
-<meta property="og:description" content="Five products. Two shipped. Zero shortcuts. Aletheia, OwlScore, OwlNote, CAL-C, and TireScan.">
+<meta property="og:description" content="Six products. Three shipped. Zero shortcuts. Aletheia, Aletheia MCP, OwlScore, OwlNote, CAL-C, and TireScan.">
 <meta property="og:site_name" content="AthenisHQ">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AthenisHQ — AI-native products, verified in public">
-<meta name="twitter:description" content="Five products. Two shipped. Zero shortcuts.">
+<meta name="twitter:description" content="Six products. Three shipped. Zero shortcuts.">
 
 <script type="application/ld+json">
 {
@@ -415,8 +415,8 @@
   </div>
 
   <div class="stat-strip">
-    <div class="stat-item"><b>5</b><span>Products</span></div>
-    <div class="stat-item"><b>2</b><span>Live in production</span></div>
+    <div class="stat-item"><b>6</b><span>Products</span></div>
+    <div class="stat-item"><b>3</b><span>Live in production</span></div>
     <div class="stat-item"><b>3</b><span>In development</span></div>
   </div>
 
@@ -450,6 +450,29 @@
         <div class="svc-metrics">
           <div><b>2,571</b><span>Incidents validated</span></div>
           <div><b>9</b><span>Signatures tracked</span></div>
+        </div>
+        <span class="svc-arrow">→</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="https://github.com/vikasny30/aletheia-mcp" target="_blank" rel="noopener" class="service ok reveal">
+    <div class="svc-graphic">
+      <svg viewBox="0 0 220 140" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M110 20l40 15v29c0 27-17 42-40 50-23-8-40-23-40-50V35l40-15z"/>
+        <path d="M92 68l13 13 25-29"/>
+      </svg>
+    </div>
+    <div class="svc-content">
+      <div class="svc-top">
+        <div class="svc-name"><div class="svc-name-row"><b>Aletheia MCP</b><span class="vertical">AI Infrastructure &amp; Safety</span></div></div>
+        <span class="svc-status ok">Open source</span>
+      </div>
+      <p class="svc-desc">Runtime filter that blocks scope-creep and prompt-injection tool calls before an AI agent runs them — deterministic, ~25&#8202;µs, no LLM in the hot path.</p>
+      <div class="svc-bottom">
+        <div class="svc-metrics">
+          <div><b>~25&#8202;µs</b><span>Filter overhead</span></div>
+          <div><b>155</b><span>Tests passing</span></div>
         </div>
         <span class="svc-arrow">→</span>
       </div>
@@ -578,7 +601,14 @@
         <li>Detects 9 distinct behavioral signatures in LLM output — confidence without grounding, scope creep, credibility exploitation, and more</li>
         <li>Every signature validated against 2,571 real-world incidents from AIID, AVID, and the MIT AI Risk Repository</li>
         <li>Public benchmark scores and a live playground — nothing is a private claim</li>
-        <li><b>aletheia-mcp</b>: open-source runtime filter that blocks scope-creep and prompt-injection tool calls before an AI agent runs them — on npm and the official MCP registry</li>
+      </ul>
+    </div>
+    <div class="cap-card ok">
+      <b class="cap-name">Aletheia MCP</b>
+      <ul>
+        <li>Blocks known scope-creep and prompt-injection tool calls before an agent runs them — destructive shell/SQL, credential reads, SSRF, out-of-mandate writes</li>
+        <li>Deterministic, ~25&#8202;µs per call, no LLM in the hot path; standalone guard tools or a fail-closed proxy over any MCP server</li>
+        <li>Apache-2.0, 155 tests, on npm and the official MCP registry — a first-line filter, not a sandbox</li>
       </ul>
     </div>
     <div class="cap-card ok">
@@ -618,6 +648,10 @@
 <div class="log-wrap reveal">
   <div class="log-label">Recent activity</div>
   <div class="log-entry">
+    <time>2026-09</time>
+    <p><b>Aletheia MCP</b> — published to npm and the official MCP registry; runtime tool-call filter now installable with a single command.</p>
+  </div>
+  <div class="log-entry">
     <time>2026-08</time>
     <p><b>OwlScore</b> — 59th live prediction added to the public ledger. Backtest accuracy holds at 43.6% against S&amp;P 100.</p>
   </div>
@@ -639,7 +673,7 @@
   <div class="section-label">Studio</div>
   <div class="split">
     <div>
-      <p class="split-quote">Five products deep, two shipped and live, before the first outside hire.</p>
+      <p class="split-quote">Six products deep, three shipped and live, before the first outside hire.</p>
       <div class="section-graphic">
         <svg viewBox="0 0 220 180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
           <line x1="110" y1="90" x2="40" y2="35"/>
@@ -663,13 +697,14 @@
       </div>
       <div class="studio-block">
         <b class="studio-block-label">Standard</b>
-        <p>Production-grade, at scale, no shortcuts — the bar every product is held to. Two are already live proving it end-to-end; the rest are close behind, and the studio is now building the team to take all five further.</p>
-        <p>None of the five compete on being first — they compete on being verifiably right: a public hash-chained ledger instead of a claimed track record, empirical failure rates instead of vibes-based safety claims.</p>
+        <p>Production-grade, at scale, no shortcuts — the bar every product is held to. Three are already live proving it end-to-end; the rest are close behind, and the studio is now building the team to take all six further.</p>
+        <p>None of the six compete on being first — they compete on being verifiably right: a public hash-chained ledger instead of a claimed track record, empirical failure rates instead of vibes-based safety claims.</p>
       </div>
       <div class="studio-block">
         <b class="studio-block-label">Monetization</b>
         <ul class="studio-money">
           <li><b>Aletheia</b> — source-available, paid commercial licensing for hosted use</li>
+          <li><b>Aletheia MCP</b> — Apache-2.0, free and open source</li>
           <li><b>OwlScore</b> — free, full S&amp;P 500 coverage planned as a premium tier</li>
           <li><b>OwlNote &amp; CAL-C</b> — free-to-start, Pro subscription unlocks sync and AI</li>
         </ul>
